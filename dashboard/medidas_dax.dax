@@ -1,0 +1,67 @@
+-- Coluna calculada: remove a parte de hora para relacionar com o calendário.
+Data Abertura Dia =
+DATE(
+    YEAR('Chamados'[data_abertura]),
+    MONTH('Chamados'[data_abertura]),
+    DAY('Chamados'[data_abertura])
+)
+
+-- Tabela calculada para filtros de calendário consistentes.
+Calendario =
+ADDCOLUMNS(
+    CALENDAR(
+        DATE(YEAR(MIN('Chamados'[Data Abertura Dia])), 1, 1),
+        DATE(YEAR(MAX('Chamados'[Data Abertura Dia])), 12, 31)
+    ),
+    "Ano", YEAR([Date]),
+    "MesNumero", MONTH([Date]),
+    "Mes", FORMAT([Date], "mmm"),
+    "AnoMes", FORMAT([Date], "yyyy-MM")
+)
+
+-- Relacionamento no modelo: Calendario[Date] 1 -> * Chamados[Data Abertura Dia]
+
+Total Chamados =
+COUNTROWS('Chamados')
+
+Chamados Fechados =
+CALCULATE([Total Chamados], 'Chamados'[status] = "Fechado")
+
+Chamados Abertos =
+CALCULATE([Total Chamados], 'Chamados'[status] <> "Fechado")
+
+Tempo Medio Resolucao (h) =
+AVERAGE('Chamados'[tempo_resolucao_horas])
+
+SLA Cumprido (%) =
+DIVIDE(
+    CALCULATE(
+        [Total Chamados],
+        'Chamados'[status] = "Fechado",
+        'Chamados'[sla_cumprido] = "Sim"
+    ),
+    [Chamados Fechados]
+)
+
+SLA Fora (%) =
+DIVIDE(
+    CALCULATE(
+        [Total Chamados],
+        'Chamados'[status] = "Fechado",
+        'Chamados'[sla_cumprido] = "Não"
+    ),
+    [Chamados Fechados]
+)
+
+Chamados Abertos Atrasados =
+CALCULATE(
+    [Total Chamados],
+    'Chamados'[status] <> "Fechado",
+    'Chamados'[situacao_sla_na_data_corte] = "Atrasado"
+)
+
+Satisfacao Media =
+AVERAGE('Chamados'[satisfacao_usuario])
+
+Notas de Satisfacao =
+COUNT('Chamados'[satisfacao_usuario])

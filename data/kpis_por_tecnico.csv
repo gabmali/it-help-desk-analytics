@@ -1,0 +1,7 @@
+﻿tecnico,total_chamados,chamados_fechados,chamados_abertos,tempo_medio_resolucao_horas,chamados_sla_cumprido,sla_cumprido_percentual
+TEC-001,260,247,13,19.51,218,88.26
+TEC-002,252,240,12,18.84,213,88.75
+TEC-003,216,201,15,20.43,180,89.55
+TEC-004,204,190,14,18.27,167,87.89
+TEC-005,149,144,5,18.33,124,86.11
+TEC-006,119,111,8,20.31,93,83.78

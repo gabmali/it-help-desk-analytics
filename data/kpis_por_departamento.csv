@@ -1,0 +1,9 @@
+﻿departamento,total_chamados,chamados_fechados,chamados_abertos,tempo_medio_resolucao_horas,chamados_sla_cumprido,sla_cumprido_percentual
+Atendimento ao Cliente,155,149,6,18.36,132,88.59
+Financeiro,153,143,10,23.65,119,83.22
+Jurídico,141,133,8,18.48,121,90.98
+Marketing,149,140,9,20.34,124,88.57
+Operações,154,144,10,17.58,125,86.81
+Recursos Humanos,162,151,11,19.25,135,89.4
+TI,164,154,10,16.78,138,89.61
+Vendas,122,119,3,19.89,101,84.87

@@ -1,0 +1,12 @@
+﻿indicador,valor,unidade,regra
+total_chamados,1200.0,chamados,Todos os registros da base
+chamados_fechados,1133.0,chamados,Status igual a Fechado
+chamados_abertos,67.0,chamados,Status diferente de Fechado
+percentual_abertos,5.58,%,Abertos dividido pelo total
+tempo_medio_resolucao_horas,19.25,horas,Média apenas dos chamados fechados
+tempo_mediano_resolucao_horas,12.08,horas,Mediana apenas dos chamados fechados
+sla_cumprido_percentual,87.82,%,Fechados dentro do SLA dividido por todos os fechados
+sla_fora_percentual,12.18,%,Fechados fora do SLA dividido por todos os fechados
+chamados_abertos_atrasados,65.0,chamados,Abertos classificados como Atrasado na data de corte
+satisfacao_media,4.01,nota de 1 a 5,Média das avaliações preenchidas em chamados fechados
+respostas_satisfacao,1133.0,respostas,Quantidade de chamados fechados com avaliação preenchida

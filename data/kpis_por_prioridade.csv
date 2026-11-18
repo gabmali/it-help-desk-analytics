@@ -1,0 +1,5 @@
+﻿prioridade,total_chamados,chamados_fechados,chamados_abertos,tempo_medio_resolucao_horas,chamados_sla_cumprido,sla_cumprido_percentual
+Alta,263,248,15,6.28,199,80.24
+Baixa,286,270,16,42.41,249,92.22
+Crítica,55,49,6,2.96,40,81.63
+Média,596,566,30,15.3,507,89.58
